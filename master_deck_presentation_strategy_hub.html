@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE UNIFIED AI & ARCHITECTURE ECOSYSTEM | Master Presentation Deck</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                            accent: '#06b6d4'
+                        },
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f2937'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover {
+            transition: all 0.3s ease;
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- TOP NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-card border-b border-cardborder px-4 lg:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center font-bold text-white shadow-lg shadow-brand-500/20">
+                <i class="fa-solid fa-network-wired text-lg"></i>
+            </div>
+            <div>
+                <span class="font-extrabold text-lg tracking-tight text-white block leading-none">AEC MASTER DECK</span>
+                <span class="text-xs text-slate-400 font-mono">Architect: MD Waliul Islam Nohan</span>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation Tabs -->
+        <nav class="hidden xl:flex items-center space-x-1 bg-cardbg/80 p-1.5 rounded-xl border border-cardborder text-xs font-medium">
+            <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn px-3.5 py-2 rounded-lg bg-brand-600 text-white transition-all">Executive Overview</button>
+            <button onclick="switchTab('seniors')" id="tab-seniors" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">1. Senior Leads</button>
+            <button onclick="switchTab('enterprise')" id="tab-enterprise" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">2. Enterprise</button>
+            <button onclick="switchTab('universities')" id="tab-universities" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">3. Universities</button>
+            <button onclick="switchTab('financial')" id="tab-financial" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">Financial Matrix</button>
+            <button onclick="switchTab('governance')" id="tab-governance" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">System Lock-In</button>
+            <button onclick="switchTab('documents')" id="tab-documents" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">Legal Agreements</button>
+            <button onclick="switchTab('roadmap')" id="tab-roadmap" class="tab-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-white transition-all">Roadmap</button>
+            <button onclick="switchTab('aistudio')" id="tab-aistudio" class="tab-btn px-3.5 py-2 rounded-lg text-brand-accent hover:text-white bg-brand-500/10 border border-brand-500/30 font-semibold transition-all">
+                <i class="fa-solid fa-wand-magic-sparkles mr-1.5 animate-pulse"></i>AI Strategy Studio
+            </button>
+        </nav>
+
+        <!-- Action / Contact Button -->
+        <div class="flex items-center space-x-3">
+            <a href="https://waliulislamnohan.github.io" target="_blank" class="hidden sm:flex items-center space-x-2 text-xs font-semibold px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all">
+                <i class="fa-solid fa-globe text-brand-accent"></i>
+                <span>Live Portfolio</span>
+            </a>
+            <button onclick="toggleMobileMenu()" class="xl:hidden w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-300">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION MENU -->
+    <div id="mobile-menu" class="hidden xl:hidden glass-card border-b border-cardborder px-4 py-3 space-y-1 text-sm">
+        <button onclick="switchTab('overview'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">Executive Overview</button>
+        <button onclick="switchTab('seniors'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">1. Senior Leads Module</button>
+        <button onclick="switchTab('enterprise'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">2. Enterprise Module</button>
+        <button onclick="switchTab('universities'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">3. University Module</button>
+        <button onclick="switchTab('financial'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">Financial Matrix & Calculator</button>
+        <button onclick="switchTab('governance'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">Governance & Lock-In</button>
+        <button onclick="switchTab('documents'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">Mandatory Legal Documents</button>
+        <button onclick="switchTab('roadmap'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 block">Implementation Roadmap</button>
+        <button onclick="switchTab('aistudio'); toggleMobileMenu()" class="w-text-left w-full px-3 py-2 rounded-lg text-brand-accent hover:bg-slate-800 block font-semibold"><i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i>AI Strategy Studio</button>
+    </div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- ================= SECTION 1: EXECUTIVE OVERVIEW ================= -->
+        <section id="sec-overview" class="tab-content space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden p-8 sm:p-12 glass-card border border-cardborder">
+                <div class="absolute -right-20 -top-20 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-3xl space-y-4">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-accent text-xs font-semibold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Centralized Software Insurance & FDE Ecosystem</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                        THE UNIFIED AI & <br class="hidden sm:block"/>
+                        <span class="gradient-text">ARCHITECTURE ECOSYSTEM</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        A tri-party interdependent market bridging Enterprise Business, Senior Engineering Leadership, and Academic Institutions under one centralized IP validation, escrow, and software insurance protocol.
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <button onclick="switchTab('financial')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition-all">
+                            View Financial Revenue Calculator <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                        <button onclick="switchTab('governance')" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all">
+                            Explore Governance & Lock-In
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interdependent Ecosystem Architecture Diagram -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cardborder space-y-6">
+                <div class="flex items-center justify-between border-b border-cardborder pb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project text-brand-accent"></i>
+                            Ecosystem Control & Value Flow Diagram
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1"> Centralized Orchestration preventing direct disintermediation</p>
+                    </div>
+                    <span class="px-3 py-1 bg-brand-500/10 text-brand-accent text-xs font-mono rounded-lg border border-brand-500/20">AEC Core Engine v3.0</span>
+                </div>
+
+                <!-- Central Hub Box -->
+                <div class="max-w-md mx-auto p-5 rounded-xl bg-gradient-to-r from-slate-900 via-brand-900/40 to-slate-900 border-2 border-brand-500/50 text-center shadow-xl space-y-2">
+                    <div class="w-10 h-10 mx-auto rounded-full bg-brand-600 flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">MD WALIUL ISLAM NOHAN (HQ)</h3>
+                    <p class="text-xs text-brand-accent font-mono">Central Escrow | IP Registry | Software Insurance Hub</p>
+                </div>
+
+                <!-- Connecting Connectors -->
+                <div class="flex justify-center text-slate-600 text-xl py-1">
+                    <i class="fa-solid fa-network-wired text-brand-500/60 animate-pulse"></i>
+                </div>
+
+                <!-- 3 Pillars Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Pillar 1 -->
+                    <div class="glass-card glass-card-hover p-5 rounded-xl border border-cardborder space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                                <i class="fa-solid fa-user-gear"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-sm">Senior Leads & PMs</h4>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> High-Ticket Rescue Sprints ($7k)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> 20-30% Software Reseller Commission</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> C-Suite AI Advisory & Mentorship</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="glass-card glass-card-hover p-5 rounded-xl border border-cardborder space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-sm">Enterprises & Boards</h4>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> 50% Off Pre-Built Software</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Local LLM Deployment (Zero API Fee)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> 3-Day IT Department Upskilling</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="glass-card glass-card-hover p-5 rounded-xl border border-cardborder space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-sm">Academic Institutions</h4>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Free Datathon Pipeline Access</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Software Reselling Club Revenue</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Joint Patentable R&D Tech</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 2: SENIOR LEADS MODULE ================= -->
+        <section id="sec-seniors" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Stakeholder Module 01</span>
+                    <h2 class="text-2xl font-extrabold text-white">Senior Engineers, Leads & Project Managers</h2>
+                </div>
+                <div class="px-4 py-2 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-xs text-indigo-300 font-semibold">
+                    <i class="fa-solid fa-bolt mr-1.5"></i> Authority & High-Ticket Income Engine
+                </div>
+            </div>
+
+            <!-- Problem vs Solution Card -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-rose-500 space-y-3">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> The Current Bottleneck
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Senior engineers and tech leads often hit a compensation ceiling, become bogged down in legacy maintenance, or lack direct exposure to enterprise C-suite decision-making.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-500 space-y-3">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i> The Ecosystem Solution
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        We convert engineering expertise into an active, multi-stream revenue and authority engine—operating as high-ticket consultants, mentors, and emergency FDE operators.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Benefits vs Responsibilities Comparison Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Column 1: Financial Benefits -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <div class="flex items-center space-x-3 text-emerald-400 font-bold border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-sack-dollar text-xl"></i>
+                        <span>1. Financial Benefits</span>
+                    </div>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Rescue Sprint Stipends ($3.5k - $10k)</span>
+                            <p class="text-slate-400">Earn 70% of total contract value for leading 2-week Forward-Deployed Engineer (FDE) intervention sprints.</p>
+                        </li>
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Software Reselling Commission</span>
+                            <p class="text-slate-400">Receive 20% – 30% recurring commission on pre-built enterprise modules closed via your network.</p>
+                        </li>
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Paid Advisory & Training</span>
+                            <p class="text-slate-400">Bill hourly rates ($100–$200/hr) leading C-suite advisory panels and corporate IT upskilling sessions.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Professional Benefits -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <div class="flex items-center space-x-3 text-brand-accent font-bold border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-chart-line text-xl"></i>
+                        <span>2. Professional Benefits</span>
+                    </div>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Global Exposure & Placement</span>
+                            <p class="text-slate-400">Direct referrals to high-paying remote/international enterprise partner roles.</p>
+                        </li>
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Agentic Workflow Upskilling</span>
+                            <p class="text-slate-400">Master multi-agent orchestration, agentic coding tools (Cursor, Windsurf), and software insurance models.</p>
+                        </li>
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">C-Suite Executive Training</span>
+                            <p class="text-slate-400">Training that equips you to advise corporate boards on AI resource allocation and tech migrations.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Responsibilities -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <div class="flex items-center space-x-3 text-amber-400 font-bold border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-list-check text-xl"></i>
+                        <span>3. Responsibilities</span>
+                    </div>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Engineering Quality Assurance</span>
+                            <p class="text-slate-400">Strictly adhere to centralized Software Insurance verification guidelines during deployments.</p>
+                        </li>
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Strict Confidentiality (NDA)</span>
+                            <p class="text-slate-400">Sign and enforce rigorous NDAs regarding client codebases and financial systems.</p>
+                        </li>
+                        <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                            <span class="font-bold text-white text-sm block">Mentorship Commitment</span>
+                            <p class="text-slate-400">Dedicate 4–6 hours monthly to guide assigned junior engineers and judge hackathons.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 3: ENTERPRISE MODULE ================= -->
+        <section id="sec-enterprise" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Stakeholder Module 02</span>
+                    <h2 class="text-2xl font-extrabold text-white">Enterprises, Corporations & Startups</h2>
+                </div>
+                <div class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-xl text-xs text-cyan-300 font-semibold">
+                    <i class="fa-solid fa-shield-halved mr-1.5"></i> Zero API Cost & Secure AI Infrastructure
+                </div>
+            </div>
+
+            <!-- Highlights Banner -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-5 glass-card rounded-2xl border border-cardborder text-center space-y-2">
+                    <div class="text-3xl font-extrabold text-emerald-400">50% OFF</div>
+                    <div class="text-xs text-slate-300 font-semibold">Pre-Built Software Discount</div>
+                    <p class="text-xs text-slate-500">Access ready AI modules at half initial R&D costs</p>
+                </div>
+                <div class="p-5 glass-card rounded-2xl border border-cardborder text-center space-y-2">
+                    <div class="text-3xl font-extrabold text-brand-accent">$0.00</div>
+                    <div class="text-xs text-slate-300 font-semibold">Recurring Cloud LLM API Bills</div>
+                    <p class="text-xs text-slate-500">Local-first models running on internal servers</p>
+                </div>
+                <div class="p-5 glass-card rounded-2xl border border-cardborder text-center space-y-2">
+                    <div class="text-3xl font-extrabold text-purple-400">60% SAVINGS</div>
+                    <div class="text-xs text-slate-300 font-semibold">Technical Debt Elimination</div>
+                    <p class="text-xs text-slate-500">Short-term FDE sprints replace bad full-time hires</p>
+                </div>
+            </div>
+
+            <!-- Deep Dive Benefits vs Responsibilities -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Left: Enterprise Benefits -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-gift text-emerald-400"></i> Enterprise Benefits & ROI
+                    </h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">50% Off Pre-Built Software</strong>
+                                Acquire vetted modules like <em>Monitor.ai</em> and <em>Smart Guard</em> at 50% discount compared to custom development costs.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">Local LLM & Zero Token Fees</strong>
+                                Models deployed locally on your hardware, eliminating unpredictable monthly API bills and securing sensitive data.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">3-Day IT Team Upskilling</strong>
+                                Transform existing IT personnel into modern, AI-assisted engineers capable of writing agentic workflows.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">Software Insurance Certification</strong>
+                                Receive an official, audited badge for core systems—assuring investors and auditors that your code is compliant.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right: Enterprise Responsibilities -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-handshake text-amber-400"></i> Enterprise Responsibilities
+                    </h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-arrow-right text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">Clear Requirements & Scope</strong>
+                                Supply explicit business logic, workflow documentation, and sandbox environment access before FDE sprints begin.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-arrow-right text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">Hardware Provisioning</strong>
+                                Ensure local servers, workstations, or private cloud meet specs required for local LLM deployment.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-arrow-right text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">C-Suite Alignment</strong>
+                                Ensure key decision-makers participate in adoption workshops for rapid sign-off on new workflows.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-arrow-right text-amber-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white text-sm block">Financial Escrow Compliance</strong>
+                                Remit all service fees and software licensing payments directly to the central escrow account.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 4: UNIVERSITIES MODULE ================= -->
+        <section id="sec-universities" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Stakeholder Module 03</span>
+                    <h2 class="text-2xl font-extrabold text-white">Academic Institutions & Universities</h2>
+                </div>
+                <div class="px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-xl text-xs text-purple-300 font-semibold">
+                    <i class="fa-solid fa-graduation-cap mr-1.5"></i> Industry R&D, Datathons & Patentable Tech
+                </div>
+            </div>
+
+            <!-- 4 Grid Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg font-bold">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">1. Free Datathon Pipelines & Enterprise Datasets</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Access anonymized, real-world corporate data pipelines for student competitions, hackathons, and academic thesis research—bridging theoretical study with live engineering.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg font-bold">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">2. Software Reselling Commission for Student Clubs</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        University student chapters (ACM, IEEE, Computer Clubs) earn 20%–30% recurring commissions by referring pre-built enterprise AI software to corporate networks.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-lg font-bold">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">3. Joint Patentable Tech & Commercialization</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Co-own intellectual property (IP) and share in commercial licensing royalties for software insurance models built jointly within university research labs.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg font-bold">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">4. Guest Faculty, Judges & Mentors</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Access top-tier CTOs, Senior Architects, and Project Managers who serve as guest lecturers, curriculum advisors, and 1-on-1 career counselors for final-year students.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 5: FINANCIAL MATRIX & CALCULATOR ================= -->
+        <section id="sec-financial" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Monetization Engine</span>
+                    <h2 class="text-2xl font-extrabold text-white">Financial Matrix & Live Split Calculator</h2>
+                </div>
+                <div class="px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs text-emerald-300 font-semibold">
+                    <i class="fa-solid fa-vault mr-1.5"></i> Centralized Escrow Distribution
+                </div>
+            </div>
+
+            <!-- Live Revenue Split Calculator -->
+            <div class="glass-card p-6 sm:p-8 rounded-2xl border border-cardborder space-y-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-brand-accent"></i>
+                    Interactive Deal Split Calculator
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Calculator Inputs -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Select Deal Type:</label>
+                            <select id="calc-deal-type" onchange="calculateSplit()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand-500">
+                                <option value="sprint">FDE Rescue Sprint ($10,000 Standard)</option>
+                                <option value="software">Pre-Built Software Sale ($6,000 Deal)</option>
+                                <option value="bootcamp">3-Day Corporate IT Bootcamp ($3,000 Deal)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Deal Contract Value ($ USD):</label>
+                            <input type="number" id="calc-amount" value="10000" oninput="calculateSplit()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white font-mono focus:outline-none focus:border-brand-500">
+                        </div>
+                    </div>
+
+                    <!-- Calculator Output Display -->
+                    <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="text-xs font-mono text-slate-400 uppercase border-b border-slate-800 pb-2">Simulated Payout Distribution</div>
+                        
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-300 flex items-center gap-2"><i class="fa-solid fa-user-ninja text-indigo-400"></i> Senior Engineer / Trainer:</span>
+                            <span id="out-engineer" class="font-bold text-emerald-400 font-mono">$7,000.00 (70%)</span>
+                        </div>
+
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-300 flex items-center gap-2"><i class="fa-solid fa-handshake text-purple-400"></i> Referring Reseller / Club:</span>
+                            <span id="out-reseller" class="font-bold text-purple-400 font-mono">$0.00 (0%)</span>
+                        </div>
+
+                        <div class="flex justify-between items-center text-sm pt-2 border-t border-slate-800">
+                            <span class="text-slate-200 font-semibold flex items-center gap-2"><i class="fa-solid fa-crown text-amber-400"></i> Ecosystem HQ (IP & Escrow):</span>
+                            <span id="out-hq" class="font-bold text-amber-400 font-mono">$3,000.00 (30%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standard Transaction Split Examples -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-5 rounded-2xl border border-cardborder space-y-2">
+                    <span class="text-xs font-mono text-indigo-400">EXAMPLE 01</span>
+                    <h4 class="font-bold text-white text-base">FDE Rescue Sprint ($10,000)</h4>
+                    <div class="text-xs text-slate-300 space-y-1 pt-2">
+                        <p>• <strong>Senior Lead Operator:</strong> $7,000 (70%)</p>
+                        <p>• <strong>Ecosystem HQ:</strong> $3,000 (30%)</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-cardborder space-y-2">
+                    <span class="text-xs font-mono text-purple-400">EXAMPLE 02</span>
+                    <h4 class="font-bold text-white text-base">Enterprise Software Sale ($6,000)</h4>
+                    <div class="text-xs text-slate-300 space-y-1 pt-2">
+                        <p>• <strong>Referring Partner / Club:</strong> $1,200–$1,800 (20–30%)</p>
+                        <p>• <strong>Ecosystem HQ:</strong> $4,200–$4,800 (70–80%)</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-cardborder space-y-2">
+                    <span class="text-xs font-mono text-cyan-400">EXAMPLE 03</span>
+                    <h4 class="font-bold text-white text-base">IT Upskilling Bootcamp ($3,000)</h4>
+                    <div class="text-xs text-slate-300 space-y-1 pt-2">
+                        <p>• <strong>Senior Lead Trainer:</strong> $1,800 (60%)</p>
+                        <p>• <strong>Ecosystem HQ:</strong> $1,200 (40%)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 6: SYSTEM GOVERNANCE & LOCK-IN ================= -->
+        <section id="sec-governance" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">System Protection</span>
+                    <h2 class="text-2xl font-extrabold text-white">System Governance & Lock-In Architecture</h2>
+                </div>
+                <div class="px-4 py-2 bg-rose-500/10 border border-rose-500/30 rounded-xl text-xs text-rose-300 font-semibold">
+                    <i class="fa-solid fa-lock mr-1.5"></i> 100% Dependency Protection
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-sm">
+                To prevent direct bypassing (disintermediation) and guarantee that no party can extract value without central platform validation, the following architectural locks are embedded into the ecosystem:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3 border-t-4 border-t-indigo-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-certificate text-indigo-400 text-xl"></i>
+                        <h3 class="font-bold text-white text-base">1. Software Insurance Registry Lock</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Software Insurance certificates are cryptographically signed and registered exclusively on MD Waliul Islam Nohan's central registry. Unsigned code is classified as "Uninsured / High Risk" by enterprise auditors.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3 border-t-4 border-t-cyan-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-key text-cyan-400 text-xl"></i>
+                        <h3 class="font-bold text-white text-base">2. Core Engine & API License Ping Lock</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Pre-built tools and local LLM wrappers contain proprietary license engines. If an enterprise attempts to bypass the platform, licensing servers automatically deactivate AI models and updates.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3 border-t-4 border-t-purple-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-network-wired text-purple-400 text-xl"></i>
+                        <h3 class="font-bold text-white text-base">3. Anonymized Data Vault Pipeline Lock</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Enterprise datasets provided for university datathons reside in central private vaults. Access is routed dynamically through central API gateways, preventing direct scraping or unauthorized sharing.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-3 border-t-4 border-t-emerald-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-vault text-emerald-400 text-xl"></i>
+                        <h3 class="font-bold text-white text-base">4. Platform Escrow & Legal Lockout</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        100% of payments flow through central escrow. All leads and clients execute a 2-Year $50,000 Non-Bypass Penalty clause—ensuring payouts are released only upon validated milestone delivery.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 7: LEGAL AGREEMENTS MODULE ================= -->
+        <section id="sec-documents" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Compliance Matrix</span>
+                    <h2 class="text-2xl font-extrabold text-white">Mandatory Legal & Onboarding Documents</h2>
+                </div>
+                <div class="px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-300 font-semibold">
+                    <i class="fa-solid fa-file-contract mr-1.5"></i> Execution Required Prior to Onboarding
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Document Column 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <div class="flex items-center space-x-2 text-indigo-400 font-bold border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-user-shield text-lg"></i>
+                        <span class="text-sm">For Senior Leads & PMs</span>
+                    </div>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">1. Non-Bypass & Non-Solicitation Agreement</strong>
+                            <p class="text-slate-400 mt-1">Enforces 2-year lockout preventing leads from contracting directly with introduced clients.</p>
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">2. Mutual NDA (MNDA)</strong>
+                            <p class="text-slate-400 mt-1">Strict protection of client proprietary source code and financial data.</p>
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">3. Code Quality & Ethics Framework</strong>
+                            <p class="text-slate-400 mt-1">Mandates adherence to Software Insurance audit guidelines.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Column 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <div class="flex items-center space-x-2 text-cyan-400 font-bold border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-building-shield text-lg"></i>
+                        <span class="text-sm">For Enterprises & Startups</span>
+                    </div>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">1. Master Services & Licensing (MSLA)</strong>
+                            <p class="text-slate-400 mt-1">Defines 50% discount terms, pre-built usage, and local LLM parameters.</p>
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">2. Platform Escrow & Payment Agreement</strong>
+                            <p class="text-slate-400 mt-1">Binds client to route 100% of payments through central escrow.</p>
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">3. Software Insurance & IP Policy</strong>
+                            <p class="text-slate-400 mt-1">Details code audit eligibility and system certification boundaries.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Column 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <div class="flex items-center space-x-2 text-purple-400 font-bold border-b border-cardborder pb-3">
+                        <i class="fa-solid fa-file-signature text-lg"></i>
+                        <span class="text-sm">For Universities & Institutions</span>
+                    </div>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">1. Institutional MoU for R&D</strong>
+                            <p class="text-slate-400 mt-1">Formal MoU for joint labs, guest faculty, and career architecture.</p>
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">2. Datathon Data Usage Agreement</strong>
+                            <p class="text-slate-400 mt-1">Restricts enterprise datasets strictly to academic competition usage.</p>
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block font-semibold">3. Joint IP & Patent Royalty Agreement</strong>
+                            <p class="text-slate-400 mt-1">Establishes patent ownership splits and commercial royalty terms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 8: IMPLEMENTATION ROADMAP ================= -->
+        <section id="sec-roadmap" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">Execution Strategy</span>
+                    <h2 class="text-2xl font-extrabold text-white">Implementation Roadmap (12-Week Rollout)</h2>
+                </div>
+                <div class="px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs text-emerald-300 font-semibold">
+                    <i class="fa-solid fa-timeline mr-1.5"></i> Structured Execution Phases
+                </div>
+            </div>
+
+            <div class="relative border-l-2 border-brand-500/30 ml-4 sm:ml-8 pl-6 sm:pl-8 space-y-8">
+                <!-- Phase 1 -->
+                <div class="relative space-y-2">
+                    <div class="absolute -left-[33px] sm:-left-[41px] top-0 w-8 h-8 rounded-full bg-brand-600 border-4 border-darkbg flex items-center justify-center text-white text-xs font-bold">1</div>
+                    <span class="text-xs font-mono text-brand-accent">WEEKS 1 – 2</span>
+                    <h3 class="text-lg font-bold text-white">Infrastructure & Legal Core Setup</h3>
+                    <p class="text-xs text-slate-300 max-w-2xl">
+                        Finalize standard legal agreements (NDA, MSLA, MoU templates), deploy the Software Insurance verification portal, and configure central escrow payment accounts.
+                    </p>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="relative space-y-2">
+                    <div class="absolute -left-[33px] sm:-left-[41px] top-0 w-8 h-8 rounded-full bg-brand-500 border-4 border-darkbg flex items-center justify-center text-white text-xs font-bold">2</div>
+                    <span class="text-xs font-mono text-brand-accent">WEEKS 3 – 6</span>
+                    <h3 class="text-lg font-bold text-white">Pilot Onboarding & Anchor Partnerships</h3>
+                    <p class="text-xs text-slate-300 max-w-2xl">
+                        Onboard 10 vetted Senior Engineers/Leads into the inner circle, execute MoUs with 2 target universities, and initiate pre-built software trials with 3 pilot enterprise clients.
+                    </p>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="relative space-y-2">
+                    <div class="absolute -left-[33px] sm:-left-[41px] top-0 w-8 h-8 rounded-full bg-brand-accent border-4 border-darkbg flex items-center justify-center text-darkbg text-xs font-bold">3</div>
+                    <span class="text-xs font-mono text-brand-accent">WEEKS 7 – 12</span>
+                    <h3 class="text-lg font-bold text-white">Enterprise Launch & Scaling</h3>
+                    <p class="text-xs text-slate-300 max-w-2xl">
+                        Launch 2 Corporate IT Bootcamps, deploy 2 high-ticket FDE Rescue Sprints, host the first industry-sponsored university Datathon, and certify first enterprise codebases with Software Insurance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 9: AI STRATEGY STUDIO ================= -->
+        <section id="sec-aistudio" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardborder pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-accent text-xs font-mono mb-1">
+                        <i class="fa-solid fa-sparkles"></i> Powered by Gemini 3 Flash & Gemini Speech API
+                    </div>
+                    <h2 class="text-2xl font-extrabold text-white">Ecosystem AI Strategy Studio</h2>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button onclick="setStudioTool('proposal')" id="tool-btn-proposal" class="px-3.5 py-2 rounded-xl bg-brand-600 text-white text-xs font-semibold">1. SOW Architect</button>
+                    <button onclick="setStudioTool('legal')" id="tool-btn-legal" class="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">2. Contract Drafter</button>
+                    <button onclick="setStudioTool('advisor')" id="tool-btn-advisor" class="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">3. AI Ecosystem Advisor</button>
+                    <button onclick="setStudioTool('tts')" id="tool-btn-tts" class="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">4. Voice Pitch (TTS)</button>
+                </div>
+            </div>
+
+            <!-- TOOL 1: PROPOSAL & SOW ARCHITECT -->
+            <div id="subtool-proposal" class="subtool-pane space-y-6">
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-signature text-brand-accent"></i> Enterprise SOW & Rescue Sprint Proposal Generator
+                    </h3>
+                    <p class="text-xs text-slate-300">Generate an executive-grade Statement of Work (SOW) tailored to an enterprise client's tech debt, system bottleneck, budget, and deployment timeline.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Enterprise Client / Company:</label>
+                            <input type="text" id="prop-client" value="Apex Financial Technologies" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Primary Technical Challenge:</label>
+                            <select id="prop-challenge" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                                <option value="Legacy Refactoring & Unstable Codebase">Legacy Refactoring & Unstable Codebase</option>
+                                <option value="High Cloud LLM API Expenses ($15k+/mo)">High Cloud LLM API Expenses ($15k+/mo)</option>
+                                <option value="Failed AI Agent Rollout / Agentic Drift">Failed AI Agent Rollout / Agentic Drift</option>
+                                <option value="IT Team Needs Upskilling in Cursor/Windsurf">IT Team Needs Upskilling in Cursor/Windsurf</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Target Budget & Sprint Duration:</label>
+                            <input type="text" id="prop-budget" value="$10,000 USD (2-Week FDE Sprint)" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2">
+                        <label class="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
+                            <input type="checkbox" id="prop-grounding" class="rounded bg-slate-900 border-slate-700 text-brand-600 focus:ring-0">
+                            <span>Enable Google Search Grounding for live industry tech stack context</span>
+                        </label>
+                        <button onclick="generateProposal()" id="btn-gen-prop" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-brand-accent hover:opacity-90 text-white text-xs font-bold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Custom SOW Proposal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output Box -->
+                <div id="prop-output-card" class="glass-card p-6 rounded-2xl border border-cardborder hidden space-y-4">
+                    <div class="flex justify-between items-center border-b border-cardborder pb-3">
+                        <span class="text-xs font-mono text-emerald-400 font-bold"><i class="fa-solid fa-circle-check mr-1"></i> Generated SOW Proposal</span>
+                        <div class="flex gap-2">
+                            <button onclick="copyToClipboard('prop-output')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs rounded-lg border border-slate-700"><i class="fa-solid fa-copy mr-1"></i> Copy Text</button>
+                            <button onclick="speakTextFromElement('prop-output')" class="px-3 py-1 bg-brand-600 hover:bg-brand-500 text-white text-xs rounded-lg"><i class="fa-solid fa-volume-high mr-1"></i> Read Out Loud</button>
+                        </div>
+                    </div>
+                    <div id="prop-output" class="text-xs text-slate-300 font-mono whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto p-4 bg-slate-900/80 rounded-xl border border-slate-800"></div>
+                    <div id="prop-sources" class="text-xs text-slate-400 border-t border-slate-800 pt-2 hidden"></div>
+                </div>
+            </div>
+
+            <!-- TOOL 2: LEGAL AGREEMENT DRAFTER -->
+            <div id="subtool-legal" class="subtool-pane hidden space-y-6">
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-gavel text-amber-400"></i> AI Legal Contract & MoU Generator
+                    </h3>
+                    <p class="text-xs text-slate-300">Draft customized legal framework documents bound by the ecosystem's 2-Year $50,000 Non-Bypass Clause and Centralized Software Insurance Guidelines.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Select Legal Template:</label>
+                            <select id="legal-template" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                                <option value="Senior Lead Non-Bypass & Reseller Agreement">Senior Lead Non-Bypass & Reseller Agreement</option>
+                                <option value="Enterprise Master Services & Escrow Agreement (MSLA)">Enterprise Master Services & Escrow Agreement (MSLA)</option>
+                                <option value="University Chapter Memorandum of Understanding (MoU)">University Chapter Memorandum of Understanding (MoU)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Counterparty Legal Entity Name:</label>
+                            <input type="text" id="legal-party" value="TechCorp Solutions Inc." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Specific Custom Clauses / Jurisdictions:</label>
+                            <input type="text" id="legal-clause" value="Include 20% Student Club Commission & Escrow release on milestone 2" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end pt-2">
+                        <button onclick="generateLegalDoc()" id="btn-gen-legal" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:opacity-90 text-white text-xs font-bold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-gavel"></i> Draft Executable Legal Document
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output Box -->
+                <div id="legal-output-card" class="glass-card p-6 rounded-2xl border border-cardborder hidden space-y-4">
+                    <div class="flex justify-between items-center border-b border-cardborder pb-3">
+                        <span class="text-xs font-mono text-amber-400 font-bold"><i class="fa-solid fa-file-contract mr-1"></i> Executable Draft Agreement</span>
+                        <button onclick="copyToClipboard('legal-output')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs rounded-lg border border-slate-700"><i class="fa-solid fa-copy mr-1"></i> Copy Agreement</button>
+                    </div>
+                    <div id="legal-output" class="text-xs text-slate-300 font-mono whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto p-4 bg-slate-900/80 rounded-xl border border-slate-800"></div>
+                </div>
+            </div>
+
+            <!-- TOOL 3: AI ECOSYSTEM ADVISOR CHATBOT -->
+            <div id="subtool-advisor" class="subtool-pane hidden space-y-6">
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-comments text-cyan-400"></i> Interactive Ecosystem Strategy Consultant
+                    </h3>
+                    <p class="text-xs text-slate-300">Ask any technical, legal, or financial question regarding MD Waliul Islam Nohan's ecosystem strategy.</p>
+
+                    <!-- Quick Prompt Chips -->
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <button onclick="setAdvisorPrompt('How does Software Insurance protect Enterprise codebases from bad contractors?')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">"How does Software Insurance work?"</button>
+                        <button onclick="setAdvisorPrompt('Explain the 70/30 split on a $10k FDE Rescue Sprint.')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">"Explain the $10k Sprint split"</button>
+                        <button onclick="setAdvisorPrompt('How do University chapters earn commissions without handling client IP?')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">"University club commissions?"</button>
+                        <button onclick="setAdvisorPrompt('What prevents senior leads from bypassing the platform and dealing directly with clients?')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">"How does non-bypass work?"</button>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <input type="text" id="advisor-query" placeholder="Ask a question about strategy, revenue, or lock-in..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-cyan-500">
+                        <button onclick="askAdvisor()" id="btn-ask-advisor" class="px-5 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Ask AI Advisor
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advisor Chat Output -->
+                <div id="advisor-output-card" class="glass-card p-6 rounded-2xl border border-cardborder hidden space-y-4">
+                    <div class="flex justify-between items-center border-b border-cardborder pb-3">
+                        <span class="text-xs font-mono text-cyan-400 font-bold"><i class="fa-solid fa-robot mr-1"></i> AI Strategic Response</span>
+                        <button onclick="speakTextFromElement('advisor-output')" class="px-3 py-1 bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 text-xs rounded-lg border border-cyan-500/30"><i class="fa-solid fa-volume-high mr-1"></i> Audio Playback</button>
+                    </div>
+                    <div id="advisor-output" class="text-xs text-slate-200 font-sans leading-relaxed p-4 bg-slate-900/80 rounded-xl border border-slate-800"></div>
+                </div>
+            </div>
+
+            <!-- TOOL 4: VOICE ELEVATOR PITCH (TTS) -->
+            <div id="subtool-tts" class="subtool-pane hidden space-y-6">
+                <div class="glass-card p-6 rounded-2xl border border-cardborder space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-waveform-lines text-purple-400"></i> AI Voice Elevator Pitch Generator (Gemini Speech API)
+                    </h3>
+                    <p class="text-xs text-slate-300">Convert your personalized executive pitch into professional spoken audio using real-time Gemini TTS models.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Select Speaker Voice Persona:</label>
+                            <select id="tts-voice" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                                <option value="Zephyr">Zephyr (Bright & Executive)</option>
+                                <option value="Puck">Puck (Upbeat & Energetic)</option>
+                                <option value="Kore">Kore (Firm & Authoritative)</option>
+                                <option value="Fenrir">Fenrir (Excitable & Passionate)</option>
+                                <option value="Aoede">Aoede (Breezy & Natural)</option>
+                                <option value="Sulafat">Sulafat (Warm & Trustworthy)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Speech Style & Direction Instructions:</label>
+                            <input type="text" id="tts-style" value="Say clearly and authoritatively with an executive tone:" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 font-semibold text-xs mb-1">Script Text to Synthesize:</label>
+                        <textarea id="tts-text" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-purple-500">Welcome to the Unified Architecture Ecosystem. We connect enterprise technology needs with top senior engineering leads under a centralized software insurance and escrow framework, eliminating tech debt and reducing API costs by 50%.</textarea>
+                    </div>
+
+                    <div class="flex justify-end pt-1">
+                        <button onclick="generateTtsAudio()" id="btn-gen-tts" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-play"></i> Synthesize & Play Audio
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audio Output Player Card -->
+                <div id="tts-output-card" class="glass-card p-6 rounded-2xl border border-cardborder hidden space-y-4">
+                    <div class="flex justify-between items-center border-b border-cardborder pb-3">
+                        <span class="text-xs font-mono text-purple-400 font-bold"><i class="fa-solid fa-circle-play mr-1"></i> Generated Speech Audio</span>
+                        <span id="tts-status" class="text-xs text-slate-400 font-mono">Ready</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <audio id="tts-audio-player" controls class="w-full rounded-lg bg-slate-900"></audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-card border-t border-cardborder mt-12 py-6 px-4 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <strong class="text-white">MD Waliul Islam Nohan</strong> — Architect & Ecosystem Director
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://waliulislamnohan.github.io" target="_blank" class="hover:text-brand-accent transition-all">Portfolio</a>
+                <span>•</span>
+                <a href="https://www.linkedin.com/in/md-waliul-islam-nohan/" target="_blank" class="hover:text-brand-accent transition-all">LinkedIn</a>
+                <span>•</span>
+                <a href="http://facebook.com/waliulislamnohan/" target="_blank" class="hover:text-brand-accent transition-all">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Utility for copying text to clipboard
+        function copyToClipboard(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const text = el.innerText || el.value;
+            
+            // Create temporary textarea for command execute
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alert('Copied text to clipboard!');
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Helper function for exponential backoff API calls
+        async function fetchGeminiWithRetry(apiUrl, payload, maxRetries = 3) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const res = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        return await res.json();
+                    }
+                } catch (e) {
+                    // Retry silently
+                }
+                await new Promise(resolve => setTimeout(resolve, delay));
+                delay *= 2;
+            }
+            throw new Error('Gemini API call exceeded maximum retries.');
+        }
+
+        // Subtool Switcher within AI Studio Tab
+        function setStudioTool(toolName) {
+            document.querySelectorAll('.subtool-pane').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('[id^="tool-btn-"]').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'bg-amber-600', 'bg-cyan-600', 'bg-purple-600', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            const targetPane = document.getElementById('subtool-' + toolName);
+            const targetBtn = document.getElementById('tool-btn-' + toolName);
+
+            if (targetPane) targetPane.classList.remove('hidden');
+            if (targetBtn) {
+                targetBtn.classList.remove('bg-slate-800', 'text-slate-300');
+                if (toolName === 'proposal') targetBtn.classList.add('bg-brand-600', 'text-white');
+                else if (toolName === 'legal') targetBtn.classList.add('bg-amber-600', 'text-white');
+                else if (toolName === 'advisor') targetBtn.classList.add('bg-cyan-600', 'text-white');
+                else if (toolName === 'tts') targetBtn.classList.add('bg-purple-600', 'text-white');
+            }
+        }
+
+        // AI Proposal & SOW Generator Function
+        async function generateProposal() {
+            const client = document.getElementById('prop-client').value || 'Target Client';
+            const challenge = document.getElementById('prop-challenge').value;
+            const budget = document.getElementById('prop-budget').value;
+            const useGrounding = document.getElementById('prop-grounding').checked;
+
+            const btn = document.getElementById('btn-gen-prop');
+            const outCard = document.getElementById('prop-output-card');
+            const outDiv = document.getElementById('prop-output');
+            const sourcesDiv = document.getElementById('prop-sources');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating Statement of Work...`;
+            outCard.classList.remove('hidden');
+            outDiv.innerText = 'Architecting customized enterprise proposal via Gemini 3 Flash...';
+            sourcesDiv.classList.add('hidden');
+
+            const systemPrompt = "You are a Chief Technology Architect and FDE Director for MD Waliul Islam Nohan's Unified Architecture Ecosystem. Draft a highly professional enterprise Statement of Work (SOW) and Rescue Sprint Proposal.";
+            const userPrompt = `Generate a detailed Statement of Work (SOW) Proposal for enterprise client "${client}".
+Primary Technical Bottleneck: ${challenge}
+Contract Budget & Timeline: ${budget}
+
+Include sections for:
+1. Executive Summary & Problem Diagnostic
+2. High-Ticket FDE Intervention Scope (2-Week Deliverables)
+3. Centralized Software Insurance Audit Guarantee
+4. Financial Escrow Split ($10k split: 70% Senior Lead Operator, 30% Ecosystem HQ)
+5. Non-Bypass & System Lock-in Terms`;
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            if (useGrounding) {
+                payload.tools = [{ "google_search": {} }];
+            }
+
+            try {
+                const data = await fetchGeminiWithRetry(apiUrl, payload);
+                const candidate = data.candidates?.[0];
+                const text = candidate?.content?.parts?.[0]?.text || "Unable to generate proposal text.";
+                
+                outDiv.innerText = text;
+
+                // Grounding sources
+                if (useGrounding && candidate?.groundingMetadata?.groundingAttributions) {
+                    const sources = candidate.groundingMetadata.groundingAttributions
+                        .map(a => `<a href="${a.web?.uri}" target="_blank" class="underline hover:text-brand-accent">${a.web?.title}</a>`)
+                        .filter(Boolean);
+                    if (sources.length > 0) {
+                        sourcesDiv.innerHTML = '<strong>Grounding Sources:</strong> ' + sources.join(' | ');
+                        sourcesDiv.classList.remove('hidden');
+                    }
+                }
+            } catch (err) {
+                outDiv.innerText = 'Error generating proposal: ' + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Generate Custom SOW Proposal`;
+            }
+        }
+
+        // AI Legal Agreement Drafter
+        async function generateLegalDoc() {
+            const template = document.getElementById('legal-template').value;
+            const party = document.getElementById('legal-party').value || 'Counterparty';
+            const clauses = document.getElementById('legal-clause').value;
+
+            const btn = document.getElementById('btn-gen-legal');
+            const outCard = document.getElementById('legal-output-card');
+            const outDiv = document.getElementById('legal-output');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Drafting Formal Legal Agreement...`;
+            outCard.classList.remove('hidden');
+            outDiv.innerText = 'Drafting formal legal text bound by the 2-Year $50k Non-Bypass Clause...';
+
+            const systemPrompt = "You are a legal counsel specializing in enterprise software escrow, non-solicitation, and academic R&D MoUs. Draft a complete, formal, executable contract.";
+            const userPrompt = `Draft a formal executable legal contract of type: "${template}".
+Counterparty: "${party}"
+Special Custom Clauses: "${clauses}"
+
+Ensure the contract strictly incorporates:
+1. MD Waliul Islam Nohan as Platform Ecosystem HQ and Escrow Agent.
+2. 2-Year $50,000 Non-Bypass / Non-Solicitation Penalty Clause.
+3. Centralized Software Insurance Code Audit Compliance.
+4. Clear Escrow Milestone release terms.`;
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const data = await fetchGeminiWithRetry(apiUrl, payload);
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Failed to generate agreement draft.";
+                outDiv.innerText = text;
+            } catch (err) {
+                outDiv.innerText = 'Error generating agreement: ' + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-gavel"></i> Draft Executable Legal Document`;
+            }
+        }
+
+        // AI Ecosystem Advisor
+        function setAdvisorPrompt(promptText) {
+            document.getElementById('advisor-query').value = promptText;
+            askAdvisor();
+        }
+
+        async function askAdvisor() {
+            const query = document.getElementById('advisor-query').value;
+            if (!query.trim()) return;
+
+            const btn = document.getElementById('btn-ask-advisor');
+            const outCard = document.getElementById('advisor-output-card');
+            const outDiv = document.getElementById('advisor-output');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Thinking...`;
+            outCard.classList.remove('hidden');
+            outDiv.innerText = 'Consulting Ecosystem Knowledge Base...';
+
+            const systemPrompt = `You are the Ecosystem AI Advisor for MD Waliul Islam Nohan's Unified AI & Architecture Ecosystem. 
+You know all details about the tri-party model:
+- Senior Leads: Earn 70% on $10k rescue sprints, 20-30% software commission, mentorship roles.
+- Enterprises: Get 50% off pre-built software, $0 cloud API costs (local LLM deployment), 3-day IT upskilling.
+- Universities: Free datathon data pipelines, student chapter software reseller commissions, joint patentable tech.
+- Lock-in: 2-Year $50k non-bypass clause, Software Insurance registry, License Ping locks.
+Provide concise, authoritative, and structured responses.`;
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: query }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const data = await fetchGeminiWithRetry(apiUrl, payload);
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
+                outDiv.innerText = text;
+            } catch (err) {
+                outDiv.innerText = 'Error processing request: ' + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Ask AI Advisor`;
+            }
+        }
+
+        // PCM 16-bit to WAV Container ArrayBuffer Converter
+        function pcmToWav(pcmData, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcmData.length * 2);
+            const view = new DataView(buffer);
+
+            function writeString(offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            writeString(0, 'RIFF');
+            view.setUint32(4, 36 + pcmData.length * 2, true);
+            writeString(8, 'WAVE');
+            writeString(12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true); // PCM format
+            view.setUint16(22, 1, true); // Mono channel
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true);
+            view.setUint16(34, 16, true);
+            writeString(36, 'data');
+            view.setUint32(40, pcmData.length * 2, true);
+
+            let offset = 44;
+            for (let i = 0; i < pcmData.length; i++, offset += 2) {
+                view.setInt16(offset, pcmData[i], true);
+            }
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        // Base64 String to ArrayBuffer
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // TTS Generation Handler
+        async function generateTtsAudio(overrideText = null) {
+            const voice = document.getElementById('tts-voice').value || 'Zephyr';
+            const style = document.getElementById('tts-style').value || '';
+            const scriptText = overrideText || document.getElementById('tts-text').value;
+
+            const btn = document.getElementById('btn-gen-tts');
+            const outCard = document.getElementById('tts-output-card');
+            const statusEl = document.getElementById('tts-status');
+            const player = document.getElementById('tts-audio-player');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Synthesizing Voice...`;
+            outCard.classList.remove('hidden');
+            statusEl.innerText = 'Connecting to Gemini Speech Model...';
+
+            const promptText = `${style} ${scriptText}`;
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: promptText }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: voice }
+                        }
+                    }
+                }
+            };
+
+            try {
+                const data = await fetchGeminiWithRetry(apiUrl, payload);
+                const part = data?.candidates?.[0]?.content?.parts?.[0];
+                const audioBase64 = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType || "";
+
+                if (audioBase64) {
+                    const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                    const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 24000;
+                    const pcmBuffer = base64ToArrayBuffer(audioBase64);
+                    const pcm16 = new Int16Array(pcmBuffer);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+
+                    player.src = audioUrl;
+                    player.play();
+                    statusEl.innerText = `Playing (${voice} - ${sampleRate}Hz)`;
+                } else {
+                    statusEl.innerText = 'Audio synthesis failed.';
+                }
+            } catch (err) {
+                statusEl.innerText = 'Error synthesizing audio: ' + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-play"></i> Synthesize & Play Audio`;
+            }
+        }
+
+        // Helper to speak text directly from an HTML element using Gemini TTS
+        function speakTextFromElement(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const text = el.innerText.slice(0, 300); // Send first 300 chars for quick pitch
+            setStudioTool('tts');
+            document.getElementById('tts-text').value = text;
+            generateTtsAudio(text);
+        }
+
+        // Tab Switcher Logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-brand-600', 'text-white');
+                el.classList.add('text-slate-400');
+            });
+
+            // Show target tab
+            const targetContent = document.getElementById('sec-' + tabId);
+            const targetBtn = document.getElementById('tab-' + tabId);
+
+            if (targetContent) targetContent.classList.remove('hidden');
+            if (targetBtn) {
+                targetBtn.classList.add('bg-brand-600', 'text-white');
+                targetBtn.classList.remove('text-slate-400');
+            }
+
+            // Scroll to top of tab
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Mobile Navigation Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Live Financial Split Calculator
+        function calculateSplit() {
+            const dealType = document.getElementById('calc-deal-type').value;
+            const amountInput = parseFloat(document.getElementById('calc-amount').value) || 0;
+
+            let engPayout = 0;
+            let engPct = 0;
+            let resPayout = 0;
+            let resPct = 0;
+            let hqPayout = 0;
+            let hqPct = 0;
+
+            if (dealType === 'sprint') {
+                engPct = 70;
+                hqPct = 30;
+                engPayout = amountInput * 0.70;
+                hqPayout = amountInput * 0.30;
+            } else if (dealType === 'software') {
+                resPct = 25; // average 25%
+                hqPct = 75;
+                resPayout = amountInput * 0.25;
+                hqPayout = amountInput * 0.75;
+            } else if (dealType === 'bootcamp') {
+                engPct = 60;
+                hqPct = 40;
+                engPayout = amountInput * 0.60;
+                hqPayout = amountInput * 0.40;
+            }
+
+            // Update UI
+            document.getElementById('out-engineer').innerText = `$${engPayout.toLocaleString('en-US', {minimumFractionDigits: 2})} (${engPct}%)`;
+            document.getElementById('out-reseller').innerText = `$${resPayout.toLocaleString('en-US', {minimumFractionDigits: 2})} (${resPct}%)`;
+            document.getElementById('out-hq').innerText = `$${hqPayout.toLocaleString('en-US', {minimumFractionDigits: 2})} (${hqPct}%)`;
+        }
+
+        // Initialize Calculator on load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateSplit();
+        });
+    </script>
+</body>
+</html>
